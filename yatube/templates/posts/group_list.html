@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- класс py-5 создает отступы сверху и снизу блока -->
+<div class="container py-5">
+   Информация на странице группы будет тут.
+   <a href = {% url 'posts:index' %}>
+      Я ссылка
+   </a>
+</div> 
+{% endblock  %}
