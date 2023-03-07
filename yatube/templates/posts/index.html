@@ -1,11 +1,26 @@
 {% extends 'base.html' %}
 
+
+
 {% block content %}
-<!-- класс py-5 создает отступы сверху и снизу блока -->
-<div class="container py-5">
-  Информация на главной странице будет тут. 
+  {% for post in posts %}
+    <ul>
+        <li>
+          Автор:{{post.author.get_full_name}}, 
+        </li>
+        <li>
+          Дата публикации:{{post.pub_date|date:"d M Y"}}
+        </li>    
+    </ul>
+  <p>{{ post.text|linebreaksbr }}</p>
+  <a href="{% url 'posts:group_posts' slug=post.group%}">Все записи группы</a>
+  {% endfor %}
+  {% if not forloop.last %}
+    <hr>
+  {% endif %}
+{% endblock  %}
+{% comment "Это переход на новую страницу" %}
   <a href = "{% url 'posts:group_posts' slug="hello-123" %}">
     Я ссылка
   </a>
-</div> 
-{% endblock  %}
+{% endcomment %}
