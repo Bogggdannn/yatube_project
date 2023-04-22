@@ -127,3 +127,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+test.py
+ШАБЛОНЫ/logged_out.html
+ШАБЛОНЫ/login.html
+ШАБЛОНЫ/password_change_done.html
+ШАБЛОНЫ/password_change_form.html
+ШАБЛОНЫ/password_reset_complete.html
+ШАБЛОНЫ/password_reset_confirm.html
+ШАБЛОНЫ/password_reset_done.html
+ШАБЛОНЫ/password_reset_form.html
+ШАБЛОНЫ/signup.html
