@@ -19,5 +19,7 @@ class Post(models.Model):
                                related_name='posts')
     
     group = models.ForeignKey(Group,on_delete = models.CASCADE,max_length= 200,blank=True,null = True,related_name='posts')
-    
+
+    def __str__(self):
+        return self.text
 # Create your models here.
