@@ -14,20 +14,23 @@
     <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}">  </script>
     <title>
       {% block title %}
-      The Last Social Media You'll Ever Need
+      <!--The Last Social Media You'll Ever Need-->
       {% endblock  %}
       Yatube
     </title>
   </head>
   <body>
+    <header>
+      {% include 'includes/header.html' %}
+    </header>
     <main>
       <div class ="container">
         <h1>{% block header %}
-              The Last Social Media You'll Ever Need
+              <!--The Last Social Media You'll Ever Need-->
             {% endblock  %}
         </h1>
         {% block content %}
-          <!-- Тут будет контент-->>
+          <!-- Тут будет контент-->
         {% endblock  %}
       </div>
     </main>       

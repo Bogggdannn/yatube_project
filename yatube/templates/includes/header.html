@@ -1,12 +1,49 @@
-<!-- Использованы классы бустрапа для создания типовой навигации с логотипом -->
-<!-- В дальнейшем тут будет создано полноценное меню -->
-<nav class="navbar navbar-light" style="background-color: lightskyblue">
-<div class="container">
-    <!-- ссылка должна вести на главную страницу -->
-    <a class="navbar-brand" href="">
-    <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-    <!-- тег span используется для добавления нужных стилей отдельным участкам текста -->
-    <span style="color:red">Ya</span>tube
-    </a>
-</div>
-</nav> 
+<html lang='ru'>
+<header>
+    {% load static %}
+    <nav class="navbar navbar-light" style="background-color: lightskyblue">
+    <div class="container">
+        <!-- ссылка должна вести на главную страницу -->
+        <a class="navbar-brand" href="">
+        <img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+        <!-- тег span используется для добавления нужных стилей отдельным участкам текста -->
+        <span style="color:red">Ya</span>tube
+        </a>
+        {% with request.resolver_match.view_name as view_name %}
+        <ul class = 'nav nav-pills'>
+            <li class = 'nav-item'>
+                <a class = "nav-link {% if view_name == 'about:author' %}active{% endif %}"
+                href = "{% url 'about:author' %}">Об авторе</a>
+            </li>
+            <li class = 'nav-item'>
+                <a class = "nav-link {% if view_name == 'about:tech' %}active{% endif %}"
+                href = "{% url 'about:tech' %}">Технологии</a>
+            </li>
+            <li class = 'nav-item'>
+                <a class = "nav-link {% if view_name == 'post:post_create' %}active{% endif %}"
+                href = "#">Новая запись</a>
+            </li>
+            <li class = 'nav-item'>
+                <a class = "nav-link {% if view_name == 'users:password_change' %}active{% endif %}"
+                href = "#">Изменить пароль</a>
+            </li>
+            <li class = 'nav-item '>
+                <a class = "#"href = "#">Выйти</a>
+            </li>
+            <li class = 'nav-item'>
+                Пользователь: {{users.username}}
+                {% comment "Реализация будет внизу документа" %}Эти элеметы должны отображаться, если пользователь не зарегистрирован{% endcomment %}
+            </li>
+            <li class = 'nav-link link-light'>
+                <a class = "nav-link {% if view_name == 'users:signup' %}active{% endif %}"
+                href = "{% url 'users:signup' %}">Регистрация </a>
+            </li>
+            <li class = 'nav-item'>
+                <a class = "nav-link link-light{% if view_name == 'users:login' %}active{% endif %}"
+                href = "#">Войти</a>
+            </li>
+        </ul>
+        {% endwith %}
+    </div>
+    </nav> 
+</header>
